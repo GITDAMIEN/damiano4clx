@@ -51,30 +51,30 @@ class UserService
         $fromFilter = $request->getFrom();
         $toFilter = $request->getTo();
 
-        if ($activeFilter) {
+        if ($activeFilter !== null) {
             $usersCollection = $usersCollection->where('active', $activeFilter);
         }
 
         if ($nameFilter) {
-            $usersCollection = $usersCollection->filter(function ($user) use ($nameFilter) {
+            $usersCollection = $usersCollection->filter(function (ClxUser $user) use ($nameFilter) {
                 return substr($user->name, 0, strlen($nameFilter)) === $nameFilter;
             });
         }
 
         if ($surnameFilter) {
-            $usersCollection = $usersCollection->filter(function ($user) use ($surnameFilter) {
+            $usersCollection = $usersCollection->filter(function (ClxUser $user) use ($surnameFilter) {
                 return substr($user->surname, 0, strlen($surnameFilter)) === $surnameFilter;
             });
         }
 
         if ($fromFilter) {
-            $usersCollection = $usersCollection->filter(function ($user) use ($fromFilter) {
+            $usersCollection = $usersCollection->filter(function (ClxUser $user) use ($fromFilter) {
                 return $user->last_login >= DateTime::createFromFormat('Y-m-d\TH:i:s', $fromFilter);
             });
         }
 
         if ($toFilter) {
-            $usersCollection = $usersCollection->filter(function ($user) use ($toFilter) {
+            $usersCollection = $usersCollection->filter(function (ClxUser $user) use ($toFilter) {
                 return $user->last_login <= DateTime::createFromFormat('Y-m-d\TH:i:s', $toFilter);
             });
         }
