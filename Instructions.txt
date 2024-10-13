@@ -1,0 +1,80 @@
+=====================
+Users views
+=====================
+
+Table "users" has the following structure:
+
+---------------------------
+| Field name | Field type |
+---------------------------
+| id         | INT        |
+| name       | VARCHAR    |
+| surname    | VARCHAR    |
+| active     | INT(1)     |
+| last_login | DATETIME   |
+| picture    | VARCHAR    |
+| rating     | DECIMAL    |
+---------------------------
+
+Please note that:
+- field 'active': specifies if the user is enabled or disabled
+- field 'last_login': specifies when the user logged in last time; the format is 'Y-m-d H:i:s'
+- field 'picture': specifies a path to an high resolution user picture (2000x2000 pixels, jpeg format)
+
+
+--------------------
+TASKS (3 activities)
+--------------------
+
+1. Implement a method called 'showUserAction' in 'UserController'. This method should get the following POST parameters:
+
+- 'active': valid values are  0, 1 or NULL and it is used to filer respectively enabled, disabled or any user. Default: NULL
+- 'from' and 'to': it is used to filter users using 'last_login' field or any date. Format passed is: 'd/m/Y H:i:s'. Default value: NULL
+- 'name' and 'surname': it is used to filer users using 'name', 'surname' or any user. The logic should be: “select user whose name/surname starts with”. Default value: NULL
+- 'view': valid values are:
+	- 'table': results will be listed in a table that reports all the values of the DB table, including the picture
+	- 'thumb': each result will be shown a DIV with the user picture above and three details below: name, surname and last_login (format: 'd/m/Y H:i:s'), like so
+
+---------------------------
+|  _____________________  |
+| |         ___         | |
+| |        /   \        | |
+| |       | · · |       | |
+| |        \ - /        | |
+| |     ____|_|_____    | |
+| |   /             \   | |
+| |  /  |         |  \  | |
+| |_____________________| |
+|                         |
+---------------------------
+| name                    |
+| surname                 |
+| last_login              |
+---------------------------
+
+Please note that:
+- users list can be retrieved only using a PROTECTED method called getAllUsers(), part of UserService.
+- getAllUsers() method does not accept any parameter.
+- getAllUsers() method returns an array of objects 'user' that have the following PUBLIC properties:
+    id
+    name
+    surname
+    active
+    last_login
+    picture
+	rating
+- getAllUsers() method should be considered as given and have NOT to be modified by the candidate.
+- getAllUsers() must be the only one repository data method, it's not requested to create any database, retrieve the users' data from this function only
+- it's mandatory to NOT create any database or query in your code
+
+2. In the 'table' view implement sorting on the table. For example, if you click the 'RATING' heading or the 'NAME' heading the table should re-sort. Clicking again should re-sort the table in the opposite direction.
+
+
+3. in both views 'table' and 'thumb' resize the picture images to be 100 pixels in width (jpeg format. The requirement is to resample the original image in php, not only define the size of the html element)
+
+-----
+NOTES
+-----
+1. Use the files provided (UserService.php, data.txt and the images) as base to start your works
+2. We will try to run the solution, so please be sure that it actually works.
+3. We want to see a well crafted solution, not just any solution. Please use all best practice and think about maintainability and elegance.
