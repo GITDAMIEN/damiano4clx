@@ -65,6 +65,7 @@ $view = $view ?? 'table';
                         </div>
 
                         <div class="col">
+                            <button class="btn btn-secondary reset_fields" type="button">Reset</button>
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </div>
                     </div>
