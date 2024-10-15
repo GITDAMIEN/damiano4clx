@@ -1,13 +1,31 @@
 import $ from 'jquery';
 
 $(function () {
-    $('.reset_fields').on('click', function () {
+    $(document).on('submit', '#filtersForm', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('action');
+        var data = $(this).serialize();
+
+        $.post(url, data, function (data) {
+            $('#usersData').html(data);
+        })
+    });
+
+    $(document).on('keyup', '#name, #surname', function () {
+        $('#filtersForm').trigger('submit');
+    });
+
+    $(document).on('change', '#view, #active', function () {
+        $('#filtersForm').trigger('submit');
+    });
+
+    $(document).on('click', '.reset_fields', function () {
         $('input').val('');
         $('select#active').val('NULL');
         $('select#view').val('table');
     });
 
-    $('.ths').on('click', function () {
+    $(document).on('click', '.ths', function () {
         var order = $(this).hasClass('defaultSort') ? 'asc' : ($(this).hasClass('sortedDesc') ? 'asc' : 'desc');
         var rows = $('#usersTable').find('tbody tr.userTr');
         var columnClass = '.' + $(this).attr('data-targetTd');

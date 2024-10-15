@@ -30,17 +30,15 @@ class UserController
             $viewLoad = $view === 'thumb' ? 'components.usersThumbnails' : 'components.usersTable';
             $filters = $request->getValues();
 
-            return view('welcome', compact('filteredUsers', 'view', 'viewLoad', 'filters'));
+            return view($viewLoad, compact('filteredUsers'));
         } catch (InvalidArgumentException | RequestException $e) {
             // Here I'm managing the handled exceptions giving the user a valid error message
-            $filters = $request->getValues();
-            return view('welcome', ['error' => $e->getMessage(), 'filters' => $filters]);
+            return view('components.error', ['error' => $e->getMessage()]);
         } catch (Throwable $th) {
             // Here I'm managing the unhandled exceptions separately in order not to give a bad error message to the user
             MyLogger::log($th);
 
-            $filters = $request->getValues();
-            return view('welcome', ['error' => 'Something went wrong. Please try again or contact the admin.', 'filters' => $filters]);
+            return view('components.error', ['error' => 'Something went wrong. Please try again or contact the admin.']);
         }
     }
 }

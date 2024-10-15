@@ -16,7 +16,7 @@ $view = $view ?? 'table';
         <div class="row my-5 text-center">
             <h1 class="my-5 text-success">Welcome to CLX Europe</h1>
             <h3 class="mb-4"><i class="fa-solid fa-filter"></i> Filter users here</h3>
-            <form method="POST" action="{{ route('welcome') }}">
+            <form id="filtersForm" method="POST" action="{{ route('showUserAction') }}">
                 @csrf
                 <div class="container">
                     <div class="row">
@@ -72,21 +72,7 @@ $view = $view ?? 'table';
                 </div>
             </form>
 
-            @if (isset($error))
-                <div class="text-danger mb-4 d-block"><i class="fa-solid fa-triangle-exclamation"></i>
-                    {{ $error }}
-                </div>
-            @endif
-
-            <div id="usersData">
-                @if (isset($filteredUsers, $viewLoad) && count($filteredUsers))
-                    <div id="usersCount" class="my-3">
-                        <i class="fa-solid fa-users"></i> Users found:
-                        <span id="usersCountSpan"><?= count($filteredUsers) ?></span>
-                    </div>
-                    @include($viewLoad, compact('filteredUsers'))
-                @endif
-            </div>
+            <div id="usersData"></div>
         </div>
     </div>
 </x-layout>

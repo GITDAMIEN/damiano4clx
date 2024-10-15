@@ -1,3 +1,5 @@
+@include('components.usersCount', compact('filteredUsers'))
+
 <table class="table table-striped table-bordered table-hover border-success" id="usersTable">
     <thead>
         <tr>

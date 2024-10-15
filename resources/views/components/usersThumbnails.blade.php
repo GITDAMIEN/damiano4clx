@@ -1,3 +1,5 @@
+@include('components.usersCount', compact('filteredUsers'))
+
 <div class="row justify-content-center">
     @foreach ($filteredUsers as $user)
         <div class="card col-2 m-3 d-flex my_card">
@@ -12,4 +14,4 @@
             </div>
         </div>
     @endforeach
-</div>1
+</div>
