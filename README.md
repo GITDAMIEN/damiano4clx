@@ -1,5 +1,5 @@
 This is a Laravel project.
-To start the application, use the command "php artisan serve".
+To start the application and run a local server, use the command "php artisan serve".
 
 Please launch the command "npm run build" to initialize the css and js assets.
 
