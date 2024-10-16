@@ -35,6 +35,7 @@ class UserController
             return view('components.error', ['error' => $e->getMessage()]);
         } catch (Throwable $th) {
             // Here I'm managing the unhandled exceptions separately in order not to give a bad error message to the user
+            // And to log the error for debugging
             MyLogger::log($th);
 
             return view('components.error', ['error' => 'Something went wrong. Please try again or contact the admin.']);

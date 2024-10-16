@@ -20,7 +20,7 @@ select {
 .my_card {
     width: 200px;
     height: 280px;
-    border: 3px solid var(--my-green);
+    border: 2px solid var(--my-green);
     border-radius: 10px;
     margin: 5px;
     padding: 5px;
