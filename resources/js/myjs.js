@@ -12,6 +12,8 @@ $(function () {
         var url = $(this).attr('action');
         var data = $(this).serialize();
 
+        $('#usersData').html('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>');
+
         $.post(url, data, function (data) {
             $('#usersData').html(data);
         }).fail(function () {
