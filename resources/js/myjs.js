@@ -1,6 +1,12 @@
 import $ from 'jquery';
 
 $(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     $(document).on('submit', '#filtersForm', function (e) {
         e.preventDefault();
         var url = $(this).attr('action');
@@ -8,6 +14,8 @@ $(function () {
 
         $.post(url, data, function (data) {
             $('#usersData').html(data);
+        }).fail(function () {
+            $('#usersData').html('<div class="text-danger">Something went wrong. Please try again later.</div>');
         })
     });
 
