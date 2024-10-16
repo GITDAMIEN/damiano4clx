@@ -1,9 +1,23 @@
 :root {
-  --my-green: #198754;
-  --darker-green: #0f5132;
+    --my-green: #198754;
+    --darker-green: #0f5132;
 }
 
-.my_card{
+#welcomeHeader {
+    border: 3px solid var(--my-green);
+    border-radius: 40px;
+    max-width: 600px;
+}
+
+input,
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid var(--my-green);
+    width: 100%;
+}
+
+.my_card {
     width: 200px;
     height: 270px;
     border: 3px solid var(--my-green);
@@ -13,13 +27,13 @@
 }
 
 .text-my-green {
-  color: var(--my-green);
+    color: var(--my-green);
 }
 
 .bg-my-green {
-  background-color: var(--my-green);
+    background-color: var(--my-green);
 }
 
 .bg-my-green:hover {
-  background-color: var(--darker-green);
+    background-color: var(--darker-green);
 }
