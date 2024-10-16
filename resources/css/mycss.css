@@ -1,8 +1,25 @@
+:root {
+  --my-green: #198754;
+  --darker-green: #0f5132;
+}
+
 .my_card{
     width: 200px;
     height: 270px;
-    border: 3px solid #198754;
+    border: 3px solid var(--my-green);
     border-radius: 10px;
     margin: 5px;
     padding: 5px;
+}
+
+.text-my-green {
+  color: var(--my-green);
+}
+
+.bg-my-green {
+  background-color: var(--my-green);
+}
+
+.bg-my-green:hover {
+  background-color: var(--darker-green);
 }

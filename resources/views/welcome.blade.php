@@ -14,7 +14,7 @@ $view = $view ?? 'table';
 
     <div class="container">
         <div class="row my-5 text-center">
-            <h1 class="my-5 text-success">Welcome to CLX Europe</h1>
+            <h1 class="my-5 text-my-green">Welcome to CLX Europe</h1>
             <h3 class="mb-4"><i class="fa-solid fa-filter"></i> Filter users here</h3>
             <form id="filtersForm" method="POST" action="{{ route('showUserAction') }}">
                 @csrf
@@ -66,7 +66,7 @@ $view = $view ?? 'table';
 
                         <div class="col">
                             <button class="btn btn-secondary reset_fields" type="button">Reset fields</button>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn bg-my-green text-white" type="submit">Submit</button>
                         </div>
                     </div>
                 </div>
