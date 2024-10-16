@@ -33,6 +33,7 @@ $(function () {
         $('input').val('');
         $('select#active').val('NULL');
         $('select#view').val('table');
+        $('#filtersForm').trigger('submit');
     });
 
     $(document).on('click', '.ths', function () {

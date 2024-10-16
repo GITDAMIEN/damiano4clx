@@ -28,7 +28,6 @@ class UserController
 
             $view = $request->getView();
             $viewLoad = $view === 'thumb' ? 'components.usersThumbnails' : 'components.usersTable';
-            $filters = $request->getValues();
 
             return view($viewLoad, compact('filteredUsers'));
         } catch (InvalidArgumentException | RequestException $e) {
